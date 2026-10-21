@@ -1,0 +1,49 @@
+GET http://localhost:8081/videojuegos
+Accept: application/json
+
+###
+
+GET http://localhost:8081/videojuegos/2
+Accept: application/json
+
+
+###
+
+
+
+POST http://localhost:8081/videojuegos
+Content-Type: application/json
+
+
+{
+"precio": 2,
+"titulo": "Demo Retro RPG",
+"categoria": "ACCION",
+"codigoSerial": "GBA-2003-USA",
+"correoProveedor": "demo@example.com",
+"fechaLanzamiento": "2005-04-30",
+"stock": 2,
+"urlImagen": "https://m.media-amazon.com/images/I/71sILUUf3jL._AC_SY879_.jpg",
+"valoracion": 1
+}
+
+###
+
+PUT http://localhost:8081/videojuegos/4
+Content-Type: application/json
+
+{
+  "precio": 2,
+  "titulo": "Demo Retro RPG",
+  "categoria": "ACCION",
+  "codigoSerial": "GBA-2003-USA",
+  "correoProveedor": "demo@example.com",
+  "fechaLanzamiento": "2005-04-30",
+  "stock": 2,
+  "urlImagen": "https://m.media-amazon.com/images/I/71sILUUf3jL._AC_SY879_.jpg",
+  "valoracion": 1
+}
+
+###
+DELETE http://localhost:8081/videojuegos/4
+Content-Type: */*

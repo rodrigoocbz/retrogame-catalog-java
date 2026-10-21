@@ -1,0 +1,19 @@
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: retrogames
+      POSTGRES_USER: portfolio
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Define DB_PASSWORD in .env}
+    ports:
+      - "127.0.0.1:55433:5432"
+    volumes:
+      - retrogames_data:/var/lib/postgresql/data
+      - ./database.sql:/docker-entrypoint-initdb.d/01-demo.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U portfolio -d retrogames"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+volumes:
+  retrogames_data:
